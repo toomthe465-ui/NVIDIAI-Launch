@@ -1,0 +1,19 @@
+{
+  "name": "nvidiai-launch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "hardhat compile",
+    "validate": "hardhat run scripts/validate.ts",
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.1.0",
+    "@openzeppelin/contracts-upgradeable": "^5.6.1",
+    "@openzeppelin/hardhat-upgrades": "^4.1.0",
+    "ethers": "^6.17.0",
+    "hardhat": "^3.1.7",
+    "typescript": "^5.9.2"
+  }
+}
