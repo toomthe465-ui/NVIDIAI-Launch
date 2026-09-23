@@ -22,3 +22,23 @@ jobs:
       - run: npm run compile
       - run: npm run validate
       - run: npm test
+      - run: npm run preflight
+      - name: Build backup bundle
+        if: always()
+        run: |
+          mkdir -p launch-backup
+          cp package.json launch-backup/
+          cp hardhat.config.ts launch-backup/
+          cp -R contracts launch-backup/
+          cp -R scripts launch-backup/
+          cp -R test launch-backup/
+          cp -R artifacts launch-backup/ 2>/dev/null || true
+          cp -R cache launch-backup/ 2>/dev/null || true
+          git rev-parse HEAD > launch-backup/COMMIT_SHA.txt
+      - name: Store CI backup artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nvidiai-launch-backup-${{ github.sha }}
+          path: launch-backup/
+          retention-days: 90
