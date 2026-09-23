@@ -40,7 +40,7 @@ describe("NVIDIAIUpgradeable", async function () {
     const V2 = await ethers.getContractFactory("NVIDIAITestV2");
     await upgradesApi.validateUpgrade(await proxy.getAddress(), V2, { kind: "uups" });
 
-    const unauthorized = V2.connect(attacker);
+    const unauthorized = proxy.connect(attacker);
     await assert.rejects(unauthorized.upgradeToAndCall(await implementation.getAddress(), "0x"));
 
     await connection.provider.send("hardhat_impersonateAccount", [OWNER]);
