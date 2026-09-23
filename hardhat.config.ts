@@ -1,9 +1,9 @@
 import { defineConfig } from "hardhat/config";
-import hardhatEthers from "@nomicfoundation/hardhat-ethers";
+import hardhatToolboxMochaEthers from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
 import hardhatUpgrades from "@openzeppelin/hardhat-upgrades";
 
 export default defineConfig({
-  plugins: [hardhatEthers, hardhatUpgrades],
+  plugins: [hardhatToolboxMochaEthers, hardhatUpgrades],
   solidity: {
     version: "0.8.28",
     settings: {
