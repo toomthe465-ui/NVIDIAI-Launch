@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "hardhat compile",
     "validate": "hardhat run scripts/validate.ts",
-    "test": "hardhat test"
+    "test": "hardhat test nodejs"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^4.1.0",
